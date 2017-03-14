@@ -2,11 +2,12 @@ import * as express from 'express';
 import {join} from 'path';
 import * as logger from 'morgan';
 import * as serve from 'serve-static';
-import * as socket from 'socket.io';
+import {socket} from './socket';
+import {ajax} from './ajax';
 
 export function server(){
     const root = join(__dirname, '../');
-    const port = 3000;
+    const port = 8080;
 
     function isFileExt(file: string): boolean {
         var len = file.length;
