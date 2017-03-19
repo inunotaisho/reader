@@ -1,4 +1,5 @@
-import {async, Utils} from 'platypus';
+import {async, Utils, register} from 'platypus';
+import SensorText from '../../models/sensortext/sensortext.model';
 
 export default class BaseService {
 	protected static _inject: any = {
@@ -13,3 +14,4 @@ export default class BaseService {
 
     host: string = 'my-host';
 }
+register.injectable('base-svc', BaseService, ['SensorText']);

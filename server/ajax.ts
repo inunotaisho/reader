@@ -1,11 +1,15 @@
 import * as express from 'express';
 import * as http from 'http';
 import * as fs from 'fs';
+import * as bodyParser from 'body-parser';
 
 export function ajax(){
     let app = express();
 
-        app.use(express.bodyParser());
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({
+            extended: true
+            }));
         app.get('/', function(req, res){
             console.log('GET /');
             var html = fs.readFileSync('index.html');
